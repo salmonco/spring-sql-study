@@ -1,0 +1,15 @@
+127.0.0.1 - - [27/Jan/2023:18:15:58 +0900] "GET / HTTP/1.1" 200 224
+0:0:0:0:0:0:0:1 - - [27/Jan/2023:18:16:19 +0900] "GET /selectEnrolmentList HTTP/1.1" 200 1567
+0:0:0:0:0:0:0:1 - - [27/Jan/2023:18:16:19 +0900] "GET /favicon.ico HTTP/1.1" 404 722
+0:0:0:0:0:0:0:1 - - [27/Jan/2023:18:17:45 +0900] "GET /selectEnrolmentList HTTP/1.1" 200 1732
+0:0:0:0:0:0:0:1 - - [27/Jan/2023:18:17:58 +0900] "GET /selectEnrolmentList?STUDENT_ID=1 HTTP/1.1" 200 1343
+0:0:0:0:0:0:0:1 - - [27/Jan/2023:18:18:05 +0900] "GET /selectEnrolmentList?STUDENT_ID=2 HTTP/1.1" 200 961
+0:0:0:0:0:0:0:1 - - [27/Jan/2023:18:18:11 +0900] "GET /selectEnrolmentList?STUDENT_ID=3 HTTP/1.1" 200 660
+0:0:0:0:0:0:0:1 - - [27/Jan/2023:18:20:14 +0900] "GET /selectEnrolmentList?STUDENT_ID HTTP/1.1" 200 1762
+0:0:0:0:0:0:0:1 - - [27/Jan/2023:18:21:00 +0900] "GET /selectEnrolmentList?STUDENT_ID=4 HTTP/1.1" 200 707
+0:0:0:0:0:0:0:1 - - [27/Jan/2023:18:21:07 +0900] "GET /selectEnrolmentList?STUDENT_ID HTTP/1.1" 200 1762
+0:0:0:0:0:0:0:1 - - [27/Jan/2023:18:21:32 +0900] "GET /selectEnrolmentList?STUDENT_ID HTTP/1.1" 200 1774
+0:0:0:0:0:0:0:1 - - [27/Jan/2023:18:22:00 +0900] "GET /selectEnrolmentList?STUDENT_ID HTTP/1.1" 200 1762
+0:0:0:0:0:0:0:1 - - [27/Jan/2023:18:23:12 +0900] "GET /selectEnrolmentList?STUDENT_ID HTTP/1.1" 200 1768
+0:0:0:0:0:0:0:1 - - [27/Jan/2023:18:23:26 +0900] "GET /selectEnrolmentList?STUDENT_ID HTTP/1.1" 200 1762
+0:0:0:0:0:0:0:1 - - [27/Jan/2023:18:24:31 +0900] "GET /selectEnrolmentList?STUDENT_ID HTTP/1.1" 200 1769

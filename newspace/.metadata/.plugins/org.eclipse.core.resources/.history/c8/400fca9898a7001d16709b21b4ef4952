@@ -1,0 +1,43 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title>Home</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script>
+</head>
+<body>
+    <form id="frm" name="frm" method="post" action="/register/action" enctype="multipart/form-data">
+        <input type="file" name="file1"/>
+        <button type="button" onclick="fnSumbit()">전송</button>
+    </form>
+    
+    <script>
+	    function fnSumbit() {
+	    	alert("sfsdf11");
+	    	var option = {
+                dataType : 'json', //JSON형태로 전달도 가능합니다.
+                url: "/register/action",
+                success: function(res){
+                    alert("success");
+                	alert(res); //res Object안에 msg에는 결과 메시지가 담겨있습니다.
+                },
+                error: function(res){
+                    alert("에러가 발생했습니다.")
+                }
+            }
+	    	
+	        //$("#frm").ajaxSubmit(option);
+            $('#frm').submit(function() { //submit이 발생하면
+            	alert("hi..")
+            	$(this).ajaxSubmit(option); //옵션값대로 ajax비동기 동작을 시키고
+                //return false; //기본 동작인 submit의 동작을 막아 페이지 reload를 막는다.
+            });
+            
+	    }
+		
+	 </script> 
+</body>
+</html>

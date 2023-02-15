@@ -1,0 +1,85 @@
+package com.my.app.service;
+
+import java.io.File;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+
+@Service("fileService")
+public class FileService {
+	
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+	
+	/**
+	 * 파일 업로드
+	 */
+	public void uploadFile(MultipartHttpServletRequest multiRequest) throws Exception {
+		
+		Map <String, MultipartFile> files = multiRequest.getFileMap();
+		
+		Iterator <Entry<String, MultipartFile>> itr = files.entrySet().iterator();
+		
+		MultipartFile mFile;
+		
+		String filePath = "C:\\Users\\zxxnn\\Downloads\\a";
+		
+		String saveFileName = "", savaFilePath = "";
+		
+		while (itr.hasNext()) {
+			
+			Entry<String, MultipartFile> entry = itr.next();
+			
+			mFile = entry.getValue();
+			
+			String fileName = mFile.getOriginalFilename();
+			
+			String fileOutName = fileName.substring(0, fileName.lastIndexOf("."));
+			
+			String fileExt = fileName.substring(fileName.lastIndexOf(".") + 1);
+			
+			String saveFilePath = filePath + File.separator + fileName;
+			
+			File fileFolder = new File(filePath);
+			
+			if (!fileFolder.exists()) {
+				if (fileFolder.mkdirs()) {
+					logger.info("[file.mkdirs] : Success");
+				} else {
+					logger.info("[file.mkdirs] : Fail");
+				}
+			}
+			
+			File saveFile = new File(saveFilePath);
+			
+			if (saveFile.isFile()) {
+				boolean _exist = true;
+				
+				int index = 0;
+				
+				while (_exist) {
+					index++;
+					
+					saveFileName = fileOutName + "(" + index + ")." + fileExt;
+					
+					String dictFile = filePath + File.separator + saveFileName;
+					
+					_exist = new File(dictFile).isFile();
+					
+					if (!_exist) {
+						savaFilePath = dictFile;
+					}
+				}
+				
+				mFile.transferTo(new File(savaFilePath));
+			} else {
+				mFile.transferTo(saveFile);
+			}
+		}
+	}
+}
